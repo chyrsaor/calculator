@@ -5,7 +5,7 @@ let secondNum ='';
 let algebra = '';
 
 const numbers = ['1','2','3','4','5','6','7','8','9','0'];
-const symbols = ['+',"-","/","*"];
+const symbols = ['+',"-","/","*","%"];
 
 function add(a, b) {
     return a + b;
@@ -25,6 +25,9 @@ function multiply(a, b) {
 function divide(a, b) {
     return a / b;
 }
+function modulo(a, b){
+    return a%b;
+}
 
 function operate(a, b, alg){
     console.log(a, b);
@@ -36,6 +39,8 @@ function operate(a, b, alg){
         return multiply(a, b);
     }else if(alg == "/"){
         return divide(a, b);
+    }else if(alg == "%"){
+        return modulo(a, b);
     }else{
         return "that operation is not supported.";
     }
@@ -63,7 +68,7 @@ btns.forEach(btn => {
             values = [];
             return;
         }
-        let groomed = mathmatica.split(/([/*+-])/);
+        let groomed = mathmatica.split(/([%/*+-])/);
         
         
         if(btn.innerText == '='){
